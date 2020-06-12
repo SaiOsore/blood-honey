@@ -18,6 +18,7 @@ const ProductPreview = ({id, src, title, price, sizes, onClick}) => {
         <input type='checkbox' id={sizes + id}/>
       </>
     )
+
   return (
     <ProductPreviewStyled id={id}>
       <ProductPreviewLink href={`${'/product/'}`+ id}>

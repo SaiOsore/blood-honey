@@ -1,6 +1,7 @@
 import { 
   ADD_TO_CART,
   REMOVE_ITEM,
+  GET_ITEM,
   SUB_QUANTITY,
   ADD_QUANTITY,
   INCREMENT,
@@ -20,6 +21,13 @@ export const addToCart = (id) => {
 export const removeItem = (id) => {
   return {
     type: REMOVE_ITEM,
+    id
+  }
+}
+
+export const getItem = (id) => {
+  return {
+    type: GET_ITEM,
     id
   }
 }

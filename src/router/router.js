@@ -6,7 +6,7 @@ import Product from "../containers/Product/Product";
 const Routes = {
   "/": () => <Home />,
   "/shop": () => <Shop />,
-  "/product": () => <Product />
+  "/product/:id": ({id}) => <Product match={id} />
 };
 
 export default Routes;

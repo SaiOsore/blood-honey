@@ -1,10 +1,14 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { ProductStyled } from './ProductStyled';
 
-const Product = ({src, title, price, sizes, colors}) => {
+const Product = ({ match }) => {
+  const productId = Number(match);
+  const ProductDetails = useSelector(state => state.cart.items.find(item => item.id === productId));
+  const { id, src, title, price, sizes, colors } = ProductDetails;
 
   return (
-    <ProductStyled>
+    <ProductStyled id={id}>
       <div>
         <div>
           <img src={src} alt={title}/>

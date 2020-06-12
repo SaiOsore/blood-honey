@@ -3,7 +3,6 @@ import ProductsPreview from '../../components/products/ProductsPreview/ProductsP
 import ShopNav from '../../components/nav/ShopNav/ShopNav';
 import CartPreview from '../../components/cart/CartPreview/CartPreview';
 import { connect } from 'react-redux';
-import { increment, decrement } from '../../actions/index';
 import { ShopStyled, ShopAside, ShopProductsContainer } from './ShopStyled';
 
 class Shop extends React.Component {
@@ -16,19 +15,10 @@ class Shop extends React.Component {
   }
 
   render() {
-    const {counter, increment, decrement, items, addedItems} = this.props;
+    const { items, addedItems } = this.props;
 
     return (
       <>
-        <div>
-          <button onClick={increment}>
-            Increment
-          </button>
-          <button onClick={decrement}>
-            Decrement
-          </button>
-          <h2>{counter}</h2>
-        </div>
         <ShopStyled>
           <ShopAside>
             <ShopNav />
@@ -45,17 +35,9 @@ class Shop extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    counter: state.counter,
     items: state.cart.items,
     addedItems: state.cart.addedItems
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    increment: () => dispatch(increment(10)),
-    decrement: () => dispatch(decrement(5)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Shop);
+export default connect(mapStateToProps)(Shop);
