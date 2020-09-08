@@ -5,34 +5,47 @@ import {
   CartPreviewStyled, 
   CartPreviewList,
   CartPreviewItemStyled,
+  CartPreviewItemContainer,
   CartPreviewItemContent,
   CartPreviewTitle,
   CartPreviewImgWrapper,
-  CartPreviewImg
+  CartPreviewImg,
+  CartPreviewButton,
+  CartPreviewButtonQuantity,
+  CartPreviewTotal
 } from "./CartPreviewStyled";
 
 const CartPreviewItem = ({ title, id, image, quantity, removeItem, addQuantity, subtractQuantity }) => {
   return (
     <CartPreviewItemStyled>
-      <CartPreviewItemContent>
-        <CartPreviewTitle>{title}</CartPreviewTitle>
-        <button onClick={removeItem}>
-          Удалить
-        </button>
-        <div>
-          <button onClick={subtractQuantity}>-</button>
-          {quantity}
-          <button onClick={addQuantity}>+</button>
-        </div>
-      </CartPreviewItemContent>
-      <CartPreviewImgWrapper>
-        <CartPreviewImg src={image} />
-      </CartPreviewImgWrapper>
+      <CartPreviewItemContainer>
+        <CartPreviewImgWrapper>
+          <CartPreviewImg src={image} />
+        </CartPreviewImgWrapper>
+        <CartPreviewItemContent>
+          <CartPreviewTitle>{title}</CartPreviewTitle>
+          <div>
+            <CartPreviewButtonQuantity onClick={subtractQuantity}>-</CartPreviewButtonQuantity>
+            {quantity}
+            <CartPreviewButtonQuantity onClick={addQuantity}>+</CartPreviewButtonQuantity>
+          </div>
+        </CartPreviewItemContent>
+      </CartPreviewItemContainer>
+      <CartPreviewButton onClick={removeItem}>
+        Remove from Cart
+      </CartPreviewButton>
     </CartPreviewItemStyled>
   );
 }
 
 class CartPreview extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+
+    };
+  }
 
   handleRemove = (id) => {
     this.props.removeItem(id);
@@ -47,7 +60,8 @@ class CartPreview extends Component {
   }
 
   render() {
-    const { addedItems, total, clearStore } = this.props;
+    const { addedItems, total, showCart, clearStore } = this.props;
+
     let CartPreviewItems = addedItems.length ?
       (
         addedItems.map((product) => (
@@ -63,16 +77,29 @@ class CartPreview extends Component {
         ))
       ) :
       (
-        <p>Nothing.</p>
+        <p>Nothing in your Cart.</p>
+      )
+
+    let CartPreviewVar = showCart ?
+      (
+        <CartPreviewStyled>
+          <CartPreviewTotal>
+            Total: ${total}
+          </CartPreviewTotal>
+          <CartPreviewList>
+            {CartPreviewItems}
+          </CartPreviewList>
+        </CartPreviewStyled>
+      ) :
+      (
+        <CartPreviewStyled>
+        </CartPreviewStyled>
       )
 
     return (
-      <CartPreviewStyled>
-        <div>{total}</div>
-        <CartPreviewList>
-          {CartPreviewItems}
-        </CartPreviewList>
-      </CartPreviewStyled>
+      <>
+        {CartPreviewVar}
+      </>
     );
   }
 }
@@ -81,7 +108,8 @@ class CartPreview extends Component {
 const mapStateToProps = (state) => {
   return {
     addedItems: state.cart.addedItems,
-    total: state.cart.total
+    total: state.cart.total,
+    showCart: state.cart.showCart
   }
 }
 const mapDispatchToProps = (dispatch) => {

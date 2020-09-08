@@ -1,8 +1,8 @@
 import React from 'react';
 import Lang from '../lang/Lang';
 import Socials from '../socials/Socials';
-import Content from '../../components/layouts/Content';
-import Logo from '../../components/logo/Logo';
+import Content from '../layouts/Content';
+import Logo from '../logo/Logo';
 import { PathLabel } from '../../helpers/helpers';
 import { 
   HeaderStyled, 
@@ -40,12 +40,11 @@ const Header = ({className}) => {
 
   const HeaderLinks = links.map((link, index) => (
     <HeaderItem key={index}>
-      <HeaderLink className={PathLabel(link.path)} href={link.path}>
+      <HeaderLink border className={PathLabel(link.path)} href={link.path}>
         {link.name}
       </HeaderLink>
     </HeaderItem>
   ));
-
 
   return (
     <HeaderStyled className={className}>

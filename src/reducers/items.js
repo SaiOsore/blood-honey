@@ -3,7 +3,9 @@ import {
 } from '../constants/ActionsTypes';
 import { Products } from '../data/Products';
 
-const initialState = Products;
+const initialState = {
+  items: Products,
+}
 
 const defaultState = [];
 

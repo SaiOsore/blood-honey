@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 export const ShopNavStyled = styled.nav`
   display: block;
+  margin-bottom: 20px;
 `;
 
 export const ShopNavList = styled.ul`

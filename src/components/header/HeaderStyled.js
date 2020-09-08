@@ -12,7 +12,7 @@ export const HeaderStyled = styled.header`
   background-color: ${colorVariables.black};
   transition: all 2s;
   ${device.tabletL} {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     height: 100%;
@@ -33,7 +33,7 @@ export const HeaderContainer = styled.nav`
   height: 100%;
   padding: 0 15px;
   display: grid;
-  grid-template-columns: max-content auto auto auto;
+  grid-template-columns: max-content auto auto auto auto;
   grid-gap: 45px;
   color: ${colorVariables.white};
   text-transform: uppercase;

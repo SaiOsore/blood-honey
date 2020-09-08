@@ -2,6 +2,7 @@ import {
   ADD_TO_CART,
   REMOVE_ITEM,
   GET_ITEM,
+  SHOW_CART,
   SUB_QUANTITY,
   ADD_QUANTITY,
   INCREMENT,
@@ -9,7 +10,13 @@ import {
   SIGN_IN,
   SIGN_OUT,
   DEFAULT_STATE
-} from '../constants/ActionsTypes'
+} from '../constants/ActionsTypes';
+
+export const showCart = () => {
+  return {
+    type: SHOW_CART
+  }
+}
 
 export const addToCart = (id) => {
   return {

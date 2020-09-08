@@ -11,12 +11,22 @@ export const ButtonStyled = styled.button`
   color: ${(props) => get(colorVariables, props.color, colorVariables.white)};
   font-family: ${(props) => get(fontVariables, props.fontFamily, fontVariables.primary)};
   transition: color .3s, border .3s;
-  &:hover, &:focus {
-    border-bottom: 2px solid ${colorVariables.white};
-  }
-  &.active {
-    border-bottom: 2px solid ${colorVariables.white};
-  }
+
+  ${(props) => props.MainBtn && css`
+    color: ${(props) => get(colorVariables, props.color, colorVariables.black)};
+    &:hover, &:focus, &.active {
+      color: ${(props) => get(colorVariables, props.color, colorVariables.accent)};
+    }
+  `};
+
+  ${(props) => props.BorderBtn && css`
+    &:hover, &:focus {
+      border-bottom: 2px solid ${colorVariables.white};
+    }
+    &.active {
+      border-bottom: 2px solid ${colorVariables.white};
+    }
+  `};
 `;
 
 export default ButtonStyled;

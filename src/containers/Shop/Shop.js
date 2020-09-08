@@ -2,6 +2,7 @@ import React from 'react';
 import ProductsPreview from '../../components/products/ProductsPreview/ProductsPreview';
 import ShopNav from '../../components/nav/ShopNav/ShopNav';
 import CartPreview from '../../components/cart/CartPreview/CartPreview';
+import CartBtn from '../../components/cart/CartBtn/CartBtn';
 import { connect } from 'react-redux';
 import { ShopStyled, ShopAside, ShopProductsContainer } from './ShopStyled';
 
@@ -21,6 +22,7 @@ class Shop extends React.Component {
       <>
         <ShopStyled>
           <ShopAside>
+            <CartBtn />
             <ShopNav />
             <CartPreview products={addedItems} />
           </ShopAside>
