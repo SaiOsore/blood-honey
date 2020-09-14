@@ -14,15 +14,19 @@ import {
   ADD_SHIPPING,
   SUB_SHIPPING,
   SHOW_CART,
-  DEFAULT_STATE
+  FETCH_PRODUCTS_BEGIN,
+  FETCH_PRODUCTS_SUCCESS,
+  FETCH_PRODUCTS_FAILURE,
+  DEFAULT_STATE,
 } from '../constants/ActionsTypes';
-import { Products } from '../data/Products';
 
 const initialState = {
-  items: Products,
+  items: [],
   addedItems: [],
   total: 0,
   showCart: false,
+  loading: false,
+  error: null,
 }
 
 const defaultState = {
@@ -30,6 +34,8 @@ const defaultState = {
   addedItems: [],
   total: 0,
   showCart: false,
+  loading: false,
+  error: null,
 };
 
 const cartReducer = (state = initialState, action) => {
@@ -43,6 +49,8 @@ const cartReducer = (state = initialState, action) => {
     case ADD_TO_CART :
       let addedItem = state.items.find(item => item.id === action.id);
       let existedItem = state.addedItems.find(item => action.id === item.id);
+
+      console.log(addedItem)
 
       if(existedItem) {
         /*If item exists - сreate a new array with the changed object value: quantity + 1*/
@@ -90,6 +98,7 @@ const cartReducer = (state = initialState, action) => {
       const newAddedItems = state.addedItems.map(item => {
         if(item.id === addedQuantityItem.id) {
           addedQuantityItem.quantity += 1;
+          console.log(addedQuantityItem)
           return addedQuantityItem;
         }
         return item;
@@ -132,6 +141,39 @@ const cartReducer = (state = initialState, action) => {
           total: subQuantityTotal
         }
       }
+
+    case FETCH_PRODUCTS_BEGIN:
+      /*Mark the state as "loading" so we can show a spinner or something
+      Reset any errors. We're starting fresh.*/
+      return {
+        ...state,
+        loading: true,
+        error: null
+      };
+
+    case FETCH_PRODUCTS_SUCCESS:
+      /*All done: set loading "false".
+      Also, replace the items with the ones from the server*/
+      return {
+        ...state,
+        loading: false,
+        items: action.payload.products
+      };
+
+    case FETCH_PRODUCTS_FAILURE:
+      // The request failed. It's done. So set loading to "false".
+      // Save the error, so we can display it somewhere.
+      // Since it failed, we don't have items to display anymore, so set `items` empty.
+      //
+      // This is all up to you and your app though:
+      // maybe you want to keep the items around!
+      // Do whatever seems right for your use case.
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error,
+        items: []
+      };
 
     case DEFAULT_STATE :
       return defaultState;

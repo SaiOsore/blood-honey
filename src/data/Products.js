@@ -6,7 +6,7 @@ export const Products = [
     "price": 132,
     "category": "Tshirts",
     "stock": 4,
-    "size": ["l", "xxl"],
+    "sizes": ["l", "xxl"],
     "colors": ["red", "green"],
   },
   { "id": 2242225,

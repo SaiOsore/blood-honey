@@ -4,6 +4,7 @@ import ShopNav from '../../components/nav/ShopNav/ShopNav';
 import CartPreview from '../../components/cart/CartPreview/CartPreview';
 import CartBtn from '../../components/cart/CartBtn/CartBtn';
 import { connect } from 'react-redux';
+import { fetchProducts } from '../../actions/index';
 import { ShopStyled, ShopAside, ShopProductsContainer } from './ShopStyled';
 
 class Shop extends React.Component {
@@ -15,8 +16,20 @@ class Shop extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.props.dispatch(fetchProducts("https://saiosore.github.io/portfolio/test/products.json"));
+  }
+
   render() {
-    const { items, addedItems } = this.props;
+    const { items, addedItems, error, loading } = this.props;
+
+    if (error) {
+      return <div>Error! {error.message}</div>;
+    }
+
+    if (loading) {
+      return <div>Loading...</div>;
+    }
 
     return (
       <>
@@ -38,7 +51,9 @@ class Shop extends React.Component {
 const mapStateToProps = (state) => {
   return {
     items: state.cart.items,
-    addedItems: state.cart.addedItems
+    addedItems: state.cart.addedItems,
+    loading: state.cart.loading,
+    error: state.cart.error
   };
 };
 

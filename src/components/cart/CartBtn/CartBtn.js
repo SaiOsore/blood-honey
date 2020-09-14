@@ -9,7 +9,7 @@ const CartBtn = ({ onClick }) => {
 
   const showCartHandler = useCallback(() => {
     dispatch(showCart());
-  }, []);
+  }, [dispatch]);
 
   return (
     <Button color={'black'} onClick={showCartHandler}>

@@ -4,13 +4,20 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import allReducer from './reducers';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 
 const store = createStore(
   allReducer,
-  (localStorage['redux-store']) ? JSON.parse(localStorage['redux-store']) : {},
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  compose(
+    applyMiddleware(thunk),
+    window.devToolsExtension ? window.devToolsExtension() : f => f
+  )
+
+/*Extension withour thunks - old version*/
+/*  (localStorage['redux-store']) ? JSON.parse(localStorage['redux-store']) : {},
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()*/
 );
 
 store.subscribe(() => {
