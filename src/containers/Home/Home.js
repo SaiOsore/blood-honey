@@ -1,5 +1,6 @@
 import React from 'react';
 import VideoHero from '../../components/video/VideoHero/VideoHero';
+import MiniLogo from '../../components/logo/MiniLogo';
 import { 
   HomeStyled, 
   HomeWrapper 
@@ -10,7 +11,8 @@ const Home = () => {
   return (
     <HomeStyled>
       <HomeWrapper />
-      <VideoHero src="/img/home/home-video.mp4" />
+      <MiniLogo />
+      <VideoHero src="/img/home/video.mp4" />
     </HomeStyled>
   );
 }

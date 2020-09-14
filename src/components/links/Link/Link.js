@@ -10,7 +10,8 @@ const Link = (props) => {
     hoverColor,
     color,
     pointerEvents,
-    fontFamily
+    fontFamily,
+    border,
   } = props;
 
   return (
@@ -23,6 +24,7 @@ const Link = (props) => {
       hovercolor={hoverColor}
       pointerEvents={pointerEvents}
       fontFamily={fontFamily}
+      border={border}
     >
       {' '}
       {children}

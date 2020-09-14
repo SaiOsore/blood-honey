@@ -1,8 +1,8 @@
-import React from 'react';
-import Lang from '../lang/Lang';
+import React, {useState} from 'react';
 import Socials from '../socials/Socials';
 import Content from '../layouts/Content';
 import Logo from '../logo/Logo';
+import Menu from '../menu/Menu';
 import { PathLabel } from '../../helpers/helpers';
 import { 
   HeaderStyled, 
@@ -10,7 +10,8 @@ import {
   HeaderBlock, 
   HeaderList, 
   HeaderItem, 
-  HeaderLink 
+  HeaderLink, 
+  HeaderMenuBtn, 
 } from './HeaderStyled';
 
 const links = [
@@ -36,37 +37,55 @@ const links = [
   },
 ]
 
-const Header = ({className}) => {
+const Header = ({ className }) => {
+
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const HeaderLinks = links.map((link, index) => (
     <HeaderItem key={index}>
-      <HeaderLink border className={PathLabel(link.path)} href={link.path}>
+      <HeaderLink border="true" className={PathLabel(link.path)} href={link.path}>
         {link.name}
       </HeaderLink>
     </HeaderItem>
   ));
 
+  const handleMenu = () => {
+    setMenuOpen(!menuOpen);
+  }
+
   return (
-    <HeaderStyled className={className}>
-      <Content>
-        <HeaderContainer>
-          <HeaderBlock>
-            <Logo />
-          </HeaderBlock>
-          <HeaderBlock>
-            <Lang />
-          </HeaderBlock>
-          <HeaderBlock>
-            <HeaderList>
-              { HeaderLinks }
-            </HeaderList>
-          </HeaderBlock>
-          <HeaderBlock>
-            <Socials />
-          </HeaderBlock>
-        </HeaderContainer>
-      </Content>
-    </HeaderStyled>
+    <>
+      <HeaderStyled className={className}>
+        <Content>
+          <HeaderContainer>
+            <HeaderBlock>
+              <Logo />
+            </HeaderBlock>
+            <HeaderBlock hideForMobiles>
+              <HeaderList>
+                { HeaderLinks }
+              </HeaderList>
+            </HeaderBlock>
+            <HeaderBlock hideForMobiles>
+              <Socials />
+            </HeaderBlock>
+            <HeaderBlock>
+              <HeaderMenuBtn
+                onClick={handleMenu}
+              >
+                Menu
+              </HeaderMenuBtn>
+            </HeaderBlock>
+          </HeaderContainer>
+        </Content>
+      </HeaderStyled>
+      { menuOpen && 
+        <Menu 
+          links={links}
+          onClose={handleMenu}
+        />
+      }
+    </>
   );
 }
 

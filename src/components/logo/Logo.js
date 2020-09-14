@@ -1,11 +1,14 @@
 import React from 'react';
+import { 
+  LogoStyled
+} from './LogoStyled';
 
 const Logo = () => {
 
   return (
-    <div>
+    <LogoStyled>
       Blood&Honey
-    </div>
+    </LogoStyled>
   );
 }
 
