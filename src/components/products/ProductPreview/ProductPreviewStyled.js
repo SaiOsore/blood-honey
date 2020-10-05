@@ -7,7 +7,7 @@ export const ProductPreviewStyled = styled.div`
   padding: 5%;
   break-inside: avoid;
   border: 1px solid ${colorVariables.black};
-  margin: 0 0 10px 0;
+  margin: 0 5px 10px 5px;
   width: calc(100% - 10px);
 `;
 

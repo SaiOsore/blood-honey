@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { removeItem, addQuantity, subtractQuantity } from '../../../actions/index';
+import { removeItem, addQuantity, subtractQuantity, showCart } from '../../../actions/index';
 import { connect } from 'react-redux';
 import { 
-  CartPreviewStyled, 
+  CartPreviewStyled,
+  CartPreviewContainer,
   CartPreviewList,
   CartPreviewItemStyled,
   CartPreviewItemContainer,
@@ -12,7 +13,8 @@ import {
   CartPreviewImg,
   CartPreviewButton,
   CartPreviewButtonQuantity,
-  CartPreviewTotal
+  CartPreviewTotal,
+  CartPreviewClose,
 } from "./CartPreviewStyled";
 
 const CartPreviewItem = ({ title, id, image, quantity, removeItem, addQuantity, subtractQuantity }) => {
@@ -60,7 +62,7 @@ class CartPreview extends Component {
   }
 
   render() {
-    const { addedItems, total, showCart, clearStore } = this.props;
+    const { addedItems, total, showCart, clearStore, toggleCart } = this.props;
 
     let CartPreviewItems = addedItems.length ?
       (
@@ -83,17 +85,24 @@ class CartPreview extends Component {
     let CartPreviewVar = showCart ?
       (
         <CartPreviewStyled>
-          <CartPreviewTotal>
-            Total: ${total}
-          </CartPreviewTotal>
-          <CartPreviewList>
-            {CartPreviewItems}
-          </CartPreviewList>
+          <CartPreviewClose
+            onClick={toggleCart}
+          >
+            &times;
+          </CartPreviewClose>
+          <CartPreviewContainer>
+            <CartPreviewTotal>
+              Total: ${total}
+            </CartPreviewTotal>
+            <CartPreviewList>
+              {CartPreviewItems}
+            </CartPreviewList>
+          </CartPreviewContainer>
         </CartPreviewStyled>
       ) :
       (
-        <CartPreviewStyled>
-        </CartPreviewStyled>
+        <>
+        </>
       )
 
     return (
@@ -107,13 +116,14 @@ class CartPreview extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    showCart: state.cart.showCart,
     addedItems: state.cart.addedItems,
     total: state.cart.total,
-    showCart: state.cart.showCart
   }
 }
 const mapDispatchToProps = (dispatch) => {
   return {
+    toggleCart: ()=>{dispatch(showCart())},
     removeItem: (id)=>{dispatch(removeItem(id))},
     addQuantity: (id)=>{dispatch(addQuantity(id))},
     subtractQuantity: (id)=>{dispatch(subtractQuantity(id))}

@@ -3,7 +3,42 @@ import Button from '../../../components/buttons/Button';
 import { device, colorVariables, sizeVariables } from '../../../theme/variables';
 
 export const CartPreviewStyled = styled.div`
-  width: 300px;
+  position: fixed;
+  right: 0;
+  top: 75px;
+  border: 2px solid ${colorVariables.black};
+  z-index: 100;
+  min-width: 30vw;
+  min-height: calc(100vh - 75px);
+  overflow: auto;
+  background: ${colorVariables.white};
+  ${device.mobileL} {
+    width: 100%;
+  }
+`;
+
+export const CartPreviewContainer = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem 2rem 1rem;
+  top: 0;
+  left: 0;
+  text-align: right;
+`;
+
+export const CartPreviewClose = styled.button`
+  position: absolute;
+  top: .5rem;
+  left: .5rem;
+  background: none;
+  border: 2px solid ${colorVariables.black};
+  z-index: 2222;
+  font-size: 1.5rem;
+  &:hover {
+    background: ${colorVariables.black};
+    color: ${colorVariables.white};
+  }
 `;
 
 export const CartPreviewList = styled.ul`

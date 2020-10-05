@@ -6,15 +6,15 @@ import { colorVariables, device } from '../../theme/variables';
 
 export const MenuStyled = styled.div`
   display: none;
-  ${device.tablet} {
-    position: absolute;
+  ${device.tabletL} {
+    position: fixed;
     top: 0;
     left: 0;
     background: ${colorVariables.black};
     width: 100%;
     display: flex;
     color: white;
-    z-index: 20;
+    z-index: 200;
     min-height: 100vh;
     & ${LogoStyled} {
       margin-bottom: 50px;

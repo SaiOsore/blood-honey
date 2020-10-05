@@ -11,8 +11,6 @@ import {
   REMOVE_ITEM,
   ADD_QUANTITY,
   SUB_QUANTITY,
-  ADD_SHIPPING,
-  SUB_SHIPPING,
   SHOW_CART,
   FETCH_PRODUCTS_BEGIN,
   FETCH_PRODUCTS_SUCCESS,
@@ -49,9 +47,6 @@ const cartReducer = (state = initialState, action) => {
     case ADD_TO_CART :
       let addedItem = state.items.find(item => item.id === action.id);
       let existedItem = state.addedItems.find(item => action.id === item.id);
-
-      console.log(addedItem)
-
       if(existedItem) {
         /*If item exists - сreate a new array with the changed object value: quantity + 1*/
         const newAddedItems = state.addedItems.map(item => {
@@ -98,7 +93,6 @@ const cartReducer = (state = initialState, action) => {
       const newAddedItems = state.addedItems.map(item => {
         if(item.id === addedQuantityItem.id) {
           addedQuantityItem.quantity += 1;
-          console.log(addedQuantityItem)
           return addedQuantityItem;
         }
         return item;
@@ -128,7 +122,7 @@ const cartReducer = (state = initialState, action) => {
         /*If item exists - сreate a new array with the changed object value: quantity - 1*/
         const newSubQuantityItems = state.addedItems.map(item => {
           if(item.id === subQuantityItem.id) {
-            subQuantityItem.quantity -= 1;
+            subQuantityItem.quantity = subQuantityItem.quantity - 1;
             return subQuantityItem;
           }
           return item;

@@ -1,6 +1,8 @@
 import React from 'react';
 import { 
   ShopNavStyled, 
+  ShopNavBlock, 
+  ShopNavTitle, 
   ShopNavList, 
   ShopNavItem, 
   ShopNavLink 
@@ -10,18 +12,40 @@ const ShopNav = () => {
 
   return (
     <ShopNavStyled>
-      <ShopNavList>
-        <ShopNavItem>
-          <ShopNavLink href="#">
-            Shirts
-          </ShopNavLink>
-        </ShopNavItem>
-        <ShopNavItem>
-          <ShopNavLink href="#">
-            Coats
-          </ShopNavLink>
-        </ShopNavItem>
-      </ShopNavList>
+      <ShopNavBlock>
+        <ShopNavTitle>
+          Categories
+        </ShopNavTitle>
+        <ShopNavList>
+          <ShopNavItem>
+            <ShopNavLink href="/shirts">
+              Shirts
+            </ShopNavLink>
+          </ShopNavItem>
+          <ShopNavItem>
+            <ShopNavLink href="/coats">
+              Coats
+            </ShopNavLink>
+          </ShopNavItem>
+        </ShopNavList>
+      </ShopNavBlock>
+      <ShopNavBlock>
+        <ShopNavTitle>
+          Collections
+        </ShopNavTitle>
+        <ShopNavList>
+          <ShopNavItem>
+            <ShopNavLink href="/fire">
+              Fire
+            </ShopNavLink>
+          </ShopNavItem>
+          <ShopNavItem>
+            <ShopNavLink href="/cold">
+              Cold
+            </ShopNavLink>
+          </ShopNavItem>
+        </ShopNavList>
+      </ShopNavBlock>
     </ShopNavStyled>
   );
 }

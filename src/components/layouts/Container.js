@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ContainerStyled = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;

@@ -6,12 +6,13 @@ const ProductsPreview = ({products}) => {
 
   const mapProducts = products.map((product, index) => (
     <ProductPreview 
-      key={index+product.id}
+      key={product.size + product.id}
       id={product.id}
       src={product.src}
       title={product.title}
       price={product.price}
-      colors={product.colors}
+      color={product.color}
+      size={product.size}
     />
   ));
 

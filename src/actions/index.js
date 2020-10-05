@@ -85,6 +85,7 @@ export function fetchProducts(url) {
       .then(handleErrors)
       .then(res => res.json())
       .then(json => {
+        console.log('fetched success');
         dispatch(fetchProductsSuccess(json.Products));
         return json.Products;
       })

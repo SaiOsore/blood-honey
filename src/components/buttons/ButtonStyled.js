@@ -5,9 +5,10 @@ import { colorVariables, sizeVariables, fontVariables, device } from '../../them
 export const ButtonStyled = styled.button`
   background: none;
   border: none;
-  display: inline-flex;
+  display: ${(props) => (props.display || 'inline-flex')};
   align-items: center;
   justify-content: center;
+  text-transform: ${(props) => (props.textTransform)};
   color: ${(props) => get(colorVariables, props.color, colorVariables.white)};
   font-family: ${(props) => get(fontVariables, props.fontFamily, fontVariables.primary)};
   transition: color .3s, border .3s;

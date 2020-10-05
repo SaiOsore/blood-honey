@@ -1,9 +1,11 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Socials from '../socials/Socials';
 import Content from '../layouts/Content';
 import Logo from '../logo/Logo';
 import Menu from '../menu/Menu';
 import { PathLabel } from '../../helpers/helpers';
+import CartPreview from '../../components/cart/CartPreview/CartPreview';
+import CartBtn from '../../components/cart/CartBtn/CartBtn';
 import { 
   HeaderStyled, 
   HeaderContainer, 
@@ -24,16 +26,12 @@ const links = [
     name: "Shop"
   },
   {
-    path: "/collection",
-    name: "Collection"
-  },
-  {
     path: "/about",
     name: "About"
   },
   {
-    path: "/contacts",
-    name: "Contacts"
+    path: "/contact",
+    name: "Contact"
   },
 ]
 
@@ -70,6 +68,13 @@ const Header = ({ className }) => {
               <Socials />
             </HeaderBlock>
             <HeaderBlock>
+              {
+                <CartBtn
+                  display={PathLabel('/', 'none')}
+                  color={'white'}
+                  textTransform={'uppercase'}
+                />
+              }
               <HeaderMenuBtn
                 onClick={handleMenu}
               >

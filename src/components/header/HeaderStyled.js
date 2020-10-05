@@ -56,7 +56,7 @@ export const HeaderBlock = styled.div`
   }
 
   ${(props) => props.hideForMobiles && css`
-    ${device.tablet} {
+    ${device.tabletL} {
       display: none;
     }
   `};
@@ -74,12 +74,12 @@ export const HeaderItem = styled.li`
 
 export const HeaderLink = styled(Link)`
   text-transform: uppercase;
-  padding: 10px 0;
+  padding: 5px 0;
 `;
 
 export const HeaderMenuBtn = styled(Button)`
   display: none;
-  ${device.tablet} {
+  ${device.tabletL} {
     display: block;
     text-transform: uppercase;
     &:hover {

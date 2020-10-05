@@ -1,5 +1,4 @@
 import React from 'react';
-import Lang from '../lang/Lang';
 import Socials from '../socials/Socials';
 import Logo from '../logo/Logo';
 import { PathLabel } from '../../helpers/helpers';

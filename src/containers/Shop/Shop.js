@@ -1,8 +1,6 @@
 import React from 'react';
 import ProductsPreview from '../../components/products/ProductsPreview/ProductsPreview';
 import ShopNav from '../../components/nav/ShopNav/ShopNav';
-import CartPreview from '../../components/cart/CartPreview/CartPreview';
-import CartBtn from '../../components/cart/CartBtn/CartBtn';
 import { connect } from 'react-redux';
 import { fetchProducts } from '../../actions/index';
 import { ShopStyled, ShopAside, ShopProductsContainer } from './ShopStyled';
@@ -21,13 +19,13 @@ class Shop extends React.Component {
   }
 
   render() {
-    const { items, addedItems, error, loading } = this.props;
+    const { items, error, loading } = this.props;
 
-    if (error) {
+    if(error) {
       return <div>Error! {error.message}</div>;
     }
 
-    if (loading) {
+    if(loading) {
       return <div>Loading...</div>;
     }
 
@@ -35,9 +33,7 @@ class Shop extends React.Component {
       <>
         <ShopStyled>
           <ShopAside>
-            <CartBtn />
             <ShopNav />
-            <CartPreview products={addedItems} />
           </ShopAside>
           <ShopProductsContainer>
             <ProductsPreview products={items} />
@@ -51,7 +47,6 @@ class Shop extends React.Component {
 const mapStateToProps = (state) => {
   return {
     items: state.cart.items,
-    addedItems: state.cart.addedItems,
     loading: state.cart.loading,
     error: state.cart.error
   };
