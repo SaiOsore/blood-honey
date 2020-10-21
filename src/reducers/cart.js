@@ -23,6 +23,7 @@ const initialState = {
   items: [],
   addedItems: [],
   total: 0,
+  productsTotal: 0,
   showCart: false,
   loading: false,
   error: null,
@@ -32,6 +33,7 @@ const defaultState = {
   items: [],
   addedItems: [],
   total: 0,
+  productsTotal: 0,
   showCart: false,
   loading: false,
   error: null,
@@ -59,20 +61,24 @@ const cartReducer = (state = initialState, action) => {
         });
         /*Calculate new total*/
         let newTotal = state.total + addedItem.price;
+        let newProductsTotal = state.productsTotal + 1;
         return {
           ...state,
           addedItems: newAddedItems,
           total: newTotal,
+          productsTotal: newProductsTotal
         }
       } else {
         /*If item is new - just added it to our array*/
         addedItem.quantity = 1;
         /*Calculate new total*/
         let newTotal = state.total + addedItem.price;
+        let newProductsTotal = state.productsTotal + 1;
         return {
           ...state,
           addedItems: [...state.addedItems, addedItem],
-          total: newTotal
+          total: newTotal,
+          productsTotal: newProductsTotal
         }
       }
 
@@ -81,10 +87,12 @@ const cartReducer = (state = initialState, action) => {
       let newItems = state.addedItems.filter(item => action.id !== item.id);
       /*Calculate new total*/
       let newTotal = state.total - (itemToRemove.price * itemToRemove.quantity);
+      let newProductsTotal = state.productsTotal - itemToRemove.quantity;
       return{
         ...state,
         addedItems: newItems,
-        total: newTotal
+        total: newTotal,
+        productsTotal: newProductsTotal
       }
 
     case ADD_QUANTITY :
@@ -100,24 +108,29 @@ const cartReducer = (state = initialState, action) => {
       });
       /*Calculate new total*/
       let addedQuantityTotal = state.total + addedQuantityItem.price;
+      let newAddedQuantityProductsTotal = state.productsTotal + 1;
       return {
         ...state,
         addedItems: newAddedItems,
-        total: addedQuantityTotal
+        total: addedQuantityTotal,
+        productsTotal: newAddedQuantityProductsTotal
       }
 
     case SUB_QUANTITY :
       /*Find the item*/
       let subQuantityItem = state.items.find(item=> item.id === action.id);
       let subQuantityTotal;
+      let newSubQuantityProductsTotal;
       /*If item quantity === 1, delete this item from array*/
       if(subQuantityItem.quantity === 1) {
         let newItems = state.addedItems.filter(item => item.id !== action.id);
         subQuantityTotal = state.total - subQuantityItem.price;
+        newSubQuantityProductsTotal = state.productsTotal - 1;
         return {
           ...state,
           addedItems: newItems,
-          total: subQuantityTotal
+          total: subQuantityTotal,
+          productsTotal: newSubQuantityProductsTotal
         }
       } else {
         /*If item exists - сreate a new array with the changed object value: quantity - 1*/
@@ -130,10 +143,12 @@ const cartReducer = (state = initialState, action) => {
         });
         /*Calculate new total*/
         subQuantityTotal = state.total - subQuantityItem.price;
+        newSubQuantityProductsTotal = state.productsTotal - 1;
         return{
           ...state,
           addedItems: newSubQuantityItems,
-          total: subQuantityTotal
+          total: subQuantityTotal,
+          productsTotal: newSubQuantityProductsTotal
         }
       }
 

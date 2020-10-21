@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { showCart } from '../../../actions/index';
 import { 
   Quantity,
@@ -9,6 +9,7 @@ import {
 const CartBtn = ({ color, textTransform, display }) => {
 
   const dispatch = useDispatch();
+  const productsTotal = useSelector(state => state.cart.productsTotal);
 
   const showCartHandler = useCallback(() => {
     dispatch(showCart());
@@ -22,7 +23,7 @@ const CartBtn = ({ color, textTransform, display }) => {
       textTransform={textTransform}
      >
       Cart
-      <Quantity>0</Quantity>
+      <Quantity>{productsTotal}</Quantity>
     </CartButton>
   );
 }
