@@ -1,11 +1,7 @@
 import styled from 'styled-components';
-import { colorVariables, device } from '../../theme/variables';
+import { device } from '../../theme/variables';
 
 export const MiniLogoStyled = styled.div`
-
-`;
-
-export const MiniLogoWrapper = styled.div`
   width: 20vw;
   height: 20vw;
   ${device.tablet} {

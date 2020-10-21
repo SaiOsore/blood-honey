@@ -62,7 +62,7 @@ class CartPreview extends Component {
   }
 
   render() {
-    const { addedItems, total, showCart, clearStore, toggleCart } = this.props;
+    const { addedItems, total, showCart, toggleCart } = this.props;
 
     let CartPreviewItems = addedItems.length ?
       (

@@ -8,7 +8,6 @@ import {
   ContactBlock,
   ContactLink,
   ContactSubTitle,
-  ContactSocials,
 } from './ContactStyled';
 
 

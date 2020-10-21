@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { get } from 'lodash';
-import { colorVariables, sizeVariables, fontVariables, device } from '../../theme/variables';
+import { colorVariables, fontVariables } from '../../theme/variables';
 
 export const ButtonStyled = styled.button`
   background: none;

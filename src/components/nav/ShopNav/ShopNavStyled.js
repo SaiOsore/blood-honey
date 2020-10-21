@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Link from '../../../components/links/Link/Link';
-import { colorVariables, device } from '../../../theme/variables';
+import { colorVariables } from '../../../theme/variables';
 
 export const ShopNavStyled = styled.div`
   display: block;

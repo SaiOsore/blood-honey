@@ -1,0 +1,1 @@
+export const productsURL = "https://saiosore.github.io/portfolio/test/products.json";

@@ -4,7 +4,6 @@ import Content from '../layouts/Content';
 import Logo from '../logo/Logo';
 import Menu from '../menu/Menu';
 import { PathLabel } from '../../helpers/helpers';
-import CartPreview from '../../components/cart/CartPreview/CartPreview';
 import CartBtn from '../../components/cart/CartBtn/CartBtn';
 import { 
   HeaderStyled, 

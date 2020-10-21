@@ -26,7 +26,8 @@ export const ProductDetailsBlock = styled.div`
 
 export const ImgWrapper = styled.div`
   position: relative;
-  max-width: 500px;
+  max-width: 200px;
+  height: 100%;
   margin: 0 auto;
   &:before, &:after {
     content: '';
@@ -46,8 +47,10 @@ export const ImgWrapper = styled.div`
 `;
 
 export const Img = styled.img`
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin: 0 auto;
   object-fit: cover;
 `;
 

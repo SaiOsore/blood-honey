@@ -1,36 +1,28 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { addToCart, fetchProducts } from '../../actions/index';
-import { connect, useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 import Content from '../../components/layouts/Content';
+import { productsURL } from '../../data/API';
 import ProductDetails from '../../components/products/ProductDetails/ProductDetails';
 
-const fetchURL = "https://saiosore.github.io/portfolio/test/products.json";
-
-const Product = ({ match, addToCart, addedItems, fetchProducts, loading, error }) => {
+const Product = ({ match, addToCart, addedItems, fetchProducts, loading, error, items }) => {
 
   const productId = Number(match);
   const [productDetails, setProductDetails] = useState(undefined);
-  const [items, setItems] = useState([]);
-  const dispatch = useDispatch();
   let template;
 
-  const fetchItems = useCallback(() => (
-    dispatch(fetchProducts(fetchURL))
-  ), [dispatch]);
-
-  useEffect(() => {
-    fetchMyAPI();
-  }, [fetchProducts]);
-
+  /*do second fetch because we need to find item.id after page refresh*/
   const fetchMyAPI = useCallback(async () => {
-    fetchItems();
-    let response = await fetch(fetchURL);
+    let response = await fetch(productsURL);
     response = await response.json();
-    setItems(response);
     for(let key in response) {
       setProductDetails(response[key].find(item => item.id === productId));
     };
-  }, [items]);
+  }, [productId]);
+
+  useEffect(() => {
+    fetchMyAPI();
+  }, [productDetails, fetchMyAPI]);
 
   const handleAddToCart = (itemId) => {
     addToCart(itemId);
@@ -60,6 +52,7 @@ const Product = ({ match, addToCart, addedItems, fetchProducts, loading, error }
 
 const mapStateToProps = (state) => {
   return {
+    items: state.cart.items,
     addedItems: state.cart.addedItems,
     loading: state.cart.loading,
     error: state.cart.error

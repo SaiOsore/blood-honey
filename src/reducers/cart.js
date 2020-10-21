@@ -1,9 +1,10 @@
 /*
   All the logic for the cart reducer is stored in this file. 
-  Main tasks: Deleting a product, 
-              Adding a product, 
-              Calculating the cost of all products, 
-              Calculating the number of identical products.
+  Main tasks:
+    Deleting a product,
+    Adding a product,
+    Calculating the cost of all products,
+    Calculating the number of identical products.
 */
 
 import {
@@ -136,7 +137,7 @@ const cartReducer = (state = initialState, action) => {
         }
       }
 
-    case FETCH_PRODUCTS_BEGIN:
+    case FETCH_PRODUCTS_BEGIN :
       /*Mark the state as "loading" so we can show a spinner or something
       Reset any errors. We're starting fresh.*/
       return {
@@ -145,7 +146,7 @@ const cartReducer = (state = initialState, action) => {
         error: null
       };
 
-    case FETCH_PRODUCTS_SUCCESS:
+    case FETCH_PRODUCTS_SUCCESS :
       /*All done: set loading "false".
       Also, replace the items with the ones from the server*/
       return {
@@ -154,7 +155,7 @@ const cartReducer = (state = initialState, action) => {
         items: action.payload.products
       };
 
-    case FETCH_PRODUCTS_FAILURE:
+    case FETCH_PRODUCTS_FAILURE :
       // The request failed. It's done. So set loading to "false".
       // Save the error, so we can display it somewhere.
       // Since it failed, we don't have items to display anymore, so set `items` empty.
@@ -176,5 +177,6 @@ const cartReducer = (state = initialState, action) => {
       return state;
   }
 }
+
 
 export default cartReducer;

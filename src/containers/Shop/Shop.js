@@ -2,7 +2,6 @@ import React from 'react';
 import ProductsPreview from '../../components/products/ProductsPreview/ProductsPreview';
 import ShopNav from '../../components/nav/ShopNav/ShopNav';
 import { connect } from 'react-redux';
-import { fetchProducts } from '../../actions/index';
 import { ShopStyled, ShopAside, ShopProductsContainer } from './ShopStyled';
 
 class Shop extends React.Component {
@@ -12,10 +11,6 @@ class Shop extends React.Component {
     this.state = {
 
     };
-  }
-
-  componentDidMount() {
-    this.props.dispatch(fetchProducts("https://saiosore.github.io/portfolio/test/products.json"));
   }
 
   render() {
