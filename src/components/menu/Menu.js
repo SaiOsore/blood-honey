@@ -1,5 +1,6 @@
 import React from 'react';
 import Socials from '../socials/Socials';
+import Authorization from '../authorization/Authorization';
 import Logo from '../logo/Logo';
 import { PathLabel } from '../../helpers/helpers';
 import { 
@@ -33,6 +34,7 @@ const Menu = ({ onClose, links }) => {
         <MenuList>
           { MenuLinks }
         </MenuList>
+        <Authorization direction={'direction'} />
         <Socials />
       </MenuNav>
       <MenuClose onClick={onClose}>CLOSE</MenuClose>

@@ -10,11 +10,13 @@ export const MenuStyled = styled.div`
     position: fixed;
     top: 0;
     left: 0;
+    overflow-y: auto;
     background: ${colorVariables.black};
     width: 100%;
     display: flex;
     color: white;
     z-index: 200;
+    height: 100%;
     min-height: 100vh;
     & ${LogoStyled} {
       margin-bottom: 50px;
@@ -29,6 +31,8 @@ export const MenuNav = styled.nav`
   justify-content: center;
   width: 100%;
   padding: 50px 0;
+  height: 100%;
+  min-height: 100vh;
 `;
 
 export const MenuList = styled.ul`

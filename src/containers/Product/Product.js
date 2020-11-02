@@ -18,11 +18,11 @@ const Product = ({ match, addToCart, addedItems, fetchProducts, loading, error, 
     for(let key in response) {
       setProductDetails(response[key].find(item => item.id === productId));
     };
-  }, [productId]);
+  }, []);
 
   useEffect(() => {
     fetchMyAPI();
-  }, [productDetails, fetchMyAPI]);
+  }, []);
 
   const handleAddToCart = (itemId) => {
     addToCart(itemId);

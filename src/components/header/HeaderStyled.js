@@ -60,6 +60,10 @@ export const HeaderBlock = styled.div`
       display: none;
     }
   `};
+
+  ${(props) => props.Column && css`
+    flex-direction: column;
+  `};
 `;
 
 export const HeaderList = styled.ul`

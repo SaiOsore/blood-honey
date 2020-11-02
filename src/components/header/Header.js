@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Socials from '../socials/Socials';
+import Authorization from '../authorization/Authorization';
 import Content from '../layouts/Content';
 import Logo from '../logo/Logo';
 import Menu from '../menu/Menu';
@@ -65,6 +66,9 @@ const Header = ({ className }) => {
             </HeaderBlock>
             <HeaderBlock hideForMobiles>
               <Socials />
+            </HeaderBlock>
+            <HeaderBlock hideForMobiles Column>
+              <Authorization />
             </HeaderBlock>
             <HeaderBlock>
               {
