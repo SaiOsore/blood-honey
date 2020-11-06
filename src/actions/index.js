@@ -13,6 +13,12 @@ import {
   FETCH_PRODUCTS_SUCCESS,
   FETCH_PRODUCTS_FAILURE,
   DEFAULT_STATE,
+  SORT_BY_ALPHABET,
+  SORT_BY_PRICE,
+  FILTER_BY_PRICE,
+  FILTER_BY_VALUE,
+  LOAD_NEW_PAGE,
+  LOAD_EXACT_PAGE,
 } from '../constants/ActionsTypes';
 
 export const showCart = () => {
@@ -70,7 +76,6 @@ export const fetchProductsFailure = (error) => ({
   payload: { error }
 });
 
-// Handle HTTP errors since fetch won't.
 function handleErrors(response) {
   if (!response.ok) {
     throw Error(response.statusText);
@@ -107,7 +112,6 @@ export const decrement = (num) => {
   }
 }
 
-
 export const login = () => {
   return {
     type: SIGN_IN,
@@ -125,3 +129,33 @@ export const clearStore = () => {
     type: DEFAULT_STATE,
   }
 }
+
+export const sortByPrice = (payload) => ({
+  type: SORT_BY_PRICE,
+  payload
+});
+
+export const filterByPrice = (payload) => ({
+  type: FILTER_BY_PRICE,
+  payload
+});
+
+export const filterByValue = (payload) => ({
+  type: FILTER_BY_VALUE,
+  payload
+});
+
+export const sortByAlphabet = (payload) => ({
+  type: SORT_BY_ALPHABET,
+  payload
+});
+
+export const loadNewPage = (payload) => ({
+  type: LOAD_NEW_PAGE,
+  payload
+});
+
+export const loadExactPage = (payload) => ({
+  type: LOAD_EXACT_PAGE,
+  payload
+});

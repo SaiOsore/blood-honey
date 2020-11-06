@@ -8,7 +8,7 @@ import {
   ShopNavLink 
 } from './ShopNavStyled';
 
-const ShopNav = () => {
+const ShopNav = ({ sortByPrice, sortByAlphabet }) => {
 
   return (
     <ShopNavStyled>
@@ -42,6 +42,23 @@ const ShopNav = () => {
           <ShopNavItem>
             <ShopNavLink href="/cold">
               Cold
+            </ShopNavLink>
+          </ShopNavItem>
+        </ShopNavList>
+      </ShopNavBlock>
+      <ShopNavBlock>
+        <ShopNavTitle>
+          Filters
+        </ShopNavTitle>
+        <ShopNavList>
+          <ShopNavItem>
+            <ShopNavLink as="button" onClick={sortByPrice}>
+              sortByPrice
+            </ShopNavLink>
+          </ShopNavItem>
+          <ShopNavItem>
+            <ShopNavLink as="button" onClick={sortByAlphabet}>
+              sortByAlphabet
             </ShopNavLink>
           </ShopNavItem>
         </ShopNavList>

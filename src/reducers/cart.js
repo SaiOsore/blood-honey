@@ -1,6 +1,9 @@
 /*
   All the logic for the cart reducer is stored in this file. 
   Main tasks:
+    Load Data,
+    Filtering items,
+    Sort items,
     Deleting a product,
     Adding a product,
     Calculating the cost of all products,
@@ -17,7 +20,20 @@ import {
   FETCH_PRODUCTS_SUCCESS,
   FETCH_PRODUCTS_FAILURE,
   DEFAULT_STATE,
+  SORT_BY_ALPHABET,
+  SORT_BY_PRICE,
+  FILTER_BY_PRICE,
+  FILTER_BY_VALUE,
+  LOAD_NEW_PAGE,
+  LOAD_EXACT_PAGE,
 } from '../constants/ActionsTypes';
+
+import { 
+  sortAsc, 
+  sortDesc, 
+  addFilterIfNotExists, 
+  removeFilter 
+} from '../helpers/helpers';
 
 const initialState = {
   items: [],
@@ -27,6 +43,7 @@ const initialState = {
   showCart: false,
   loading: false,
   error: null,
+  appliedFilters: [],
 }
 
 const defaultState = {
@@ -37,6 +54,7 @@ const defaultState = {
   showCart: false,
   loading: false,
   error: null,
+  appliedFilters: [],
 };
 
 const cartReducer = (state = initialState, action) => {
@@ -88,7 +106,7 @@ const cartReducer = (state = initialState, action) => {
       /*Calculate new total*/
       let newTotal = state.total - (itemToRemove.price * itemToRemove.quantity);
       let newProductsTotal = state.productsTotal - itemToRemove.quantity;
-      return{
+      return {
         ...state,
         addedItems: newItems,
         total: newTotal,
@@ -185,6 +203,42 @@ const cartReducer = (state = initialState, action) => {
         items: []
       };
 
+    case SORT_BY_PRICE:
+      let sortByPriceItems = [...state.items];
+      let filter = `${action.type}, ${action.payload}`;
+      let newApplideFilters = [...state.appliedFilters];
+
+      let sortedPriceArr = action.payload === "asc" ?
+        sortAsc(sortByPriceItems, 'price') :
+        sortDesc(sortByPriceItems, 'price');
+
+      sortByPriceItems = sortedPriceArr;
+      newApplideFilters = addFilterIfNotExists(filter, newApplideFilters);
+
+      return {
+        ...state,
+        items: sortByPriceItems,
+        appliedFilters: newApplideFilters
+      }
+
+    case SORT_BY_ALPHABET:
+      let sortByAlphabetItems = [...state.items];
+      let alphabetFilter = `${action.type}, ${action.payload}`;
+      let newAlphabetApplideFilters = [...state.appliedFilters];
+
+      let sortedAlphabetArr = action.payload === "asc" ?
+        sortAsc(sortByAlphabetItems, 'title') :
+        sortDesc(sortByAlphabetItems, 'title');
+
+      sortByAlphabetItems = sortedAlphabetArr;
+      newAlphabetApplideFilters = addFilterIfNotExists(alphabetFilter, newAlphabetApplideFilters);
+
+      return {
+        ...state,
+        items: sortByAlphabetItems,
+        appliedFilters: newAlphabetApplideFilters
+      }
+
     case DEFAULT_STATE :
       return defaultState;
 
@@ -192,6 +246,5 @@ const cartReducer = (state = initialState, action) => {
       return state;
   }
 }
-
 
 export default cartReducer;

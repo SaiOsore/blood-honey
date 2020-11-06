@@ -4,13 +4,18 @@ import { device } from '../../theme/variables';
 export const ShopStyled = styled.div`
   display: flex;
   padding-top: 50px;
+  ${device.tablet} {
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 
 export const ShopAside = styled.aside`
   width: 30%;
   padding: 0 10px;
   ${device.tablet} {
-    display: none;
+    width: 100%;
+    margin-bottom: 32px;
   }
 `;
 
