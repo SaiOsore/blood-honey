@@ -5,10 +5,12 @@ import {
   ShopNavTitle, 
   ShopNavList, 
   ShopNavItem, 
-  ShopNavLink 
+  ShopNavLink, 
+  ShopNavBtn, 
+  ShopNavInput, 
 } from './ShopNavStyled';
 
-const ShopNav = ({ sortByPrice, sortByAlphabet }) => {
+const ShopNav = ({ sortByPrice, sortByAlphabet, filter }) => {
 
   return (
     <ShopNavStyled>
@@ -52,14 +54,17 @@ const ShopNav = ({ sortByPrice, sortByAlphabet }) => {
         </ShopNavTitle>
         <ShopNavList>
           <ShopNavItem>
-            <ShopNavLink as="button" onClick={sortByPrice}>
-              sortByPrice
-            </ShopNavLink>
+            <ShopNavBtn onClick={sortByPrice}>
+              sort by price
+            </ShopNavBtn>
           </ShopNavItem>
           <ShopNavItem>
-            <ShopNavLink as="button" onClick={sortByAlphabet}>
-              sortByAlphabet
-            </ShopNavLink>
+            <ShopNavBtn onClick={sortByAlphabet}>
+              sort by alphabet
+            </ShopNavBtn>
+          </ShopNavItem>
+          <ShopNavItem>
+            <ShopNavInput placeholder="type price or name" onChange={filter} />
           </ShopNavItem>
         </ShopNavList>
       </ShopNavBlock>

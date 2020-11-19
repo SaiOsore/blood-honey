@@ -22,8 +22,7 @@ import {
   DEFAULT_STATE,
   SORT_BY_ALPHABET,
   SORT_BY_PRICE,
-  FILTER_BY_PRICE,
-  FILTER_BY_VALUE,
+  FILTER,
   LOAD_NEW_PAGE,
   LOAD_EXACT_PAGE,
 } from '../constants/ActionsTypes';
@@ -44,6 +43,7 @@ const initialState = {
   loading: false,
   error: null,
   appliedFilters: [],
+  filteredItems: [],
 }
 
 const defaultState = {
@@ -55,6 +55,7 @@ const defaultState = {
   loading: false,
   error: null,
   appliedFilters: [],
+  filteredItems: [],
 };
 
 const cartReducer = (state = initialState, action) => {
@@ -237,6 +238,18 @@ const cartReducer = (state = initialState, action) => {
         ...state,
         items: sortByAlphabetItems,
         appliedFilters: newAlphabetApplideFilters
+      }
+
+    case FILTER:
+      let filteredItems = [...state.items];
+      filteredItems = filteredItems.filter(item => (
+        item.price >= action.payload || 
+        item.title.toLowerCase().includes(action.payload)
+      ));
+
+      return {
+        ...state,
+        filteredItems: filteredItems,
       }
 
     case DEFAULT_STATE :

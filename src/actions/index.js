@@ -15,8 +15,7 @@ import {
   DEFAULT_STATE,
   SORT_BY_ALPHABET,
   SORT_BY_PRICE,
-  FILTER_BY_PRICE,
-  FILTER_BY_VALUE,
+  FILTER,
   LOAD_NEW_PAGE,
   LOAD_EXACT_PAGE,
 } from '../constants/ActionsTypes';
@@ -135,13 +134,8 @@ export const sortByPrice = (payload) => ({
   payload
 });
 
-export const filterByPrice = (payload) => ({
-  type: FILTER_BY_PRICE,
-  payload
-});
-
-export const filterByValue = (payload) => ({
-  type: FILTER_BY_VALUE,
+export const filter = (payload) => ({
+  type: FILTER,
   payload
 });
 

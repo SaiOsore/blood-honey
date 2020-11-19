@@ -12,6 +12,7 @@ import {
   CartPreviewImgWrapper,
   CartPreviewImg,
   CartPreviewButton,
+  CartPreviewLink,
   CartPreviewButtonQuantity,
   CartPreviewTotal,
   CartPreviewClose,
@@ -95,8 +96,13 @@ class CartPreview extends Component {
               Total: ${total}
             </CartPreviewTotal>
             <CartPreviewList>
-              {CartPreviewItems}
+              { CartPreviewItems }
             </CartPreviewList>
+            { addedItems.length &&
+              <CartPreviewLink href='#'>
+                Checkout
+              </CartPreviewLink>
+            }
           </CartPreviewContainer>
         </CartPreviewStyled>
       ) :
@@ -107,7 +113,7 @@ class CartPreview extends Component {
 
     return (
       <>
-        {CartPreviewVar}
+        { CartPreviewVar }
       </>
     );
   }

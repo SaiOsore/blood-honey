@@ -13,8 +13,7 @@ export const FETCH_PRODUCTS_FAILURE = 'FETCH_PRODUCTS_FAILURE';
 
 export const SORT_BY_ALPHABET = 'SORT_BY_ALPHABET';
 export const SORT_BY_PRICE = 'SORT_BY_PRICE';
-export const FILTER_BY_PRICE = 'FILTER_BY_PRICE';
-export const FILTER_BY_VALUE = 'FILTER_BY_VALUE';
+export const FILTER = 'FILTER';
 
 export const LOAD_NEW_PAGE = 'LOAD_NEW_PAGE';
 export const LOAD_EXACT_PAGE = 'LOAD_EXACT_PAGE';

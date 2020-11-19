@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { ButtonStyled } from '../../buttons/ButtonStyled';
-//import { colorVariables, sizeVariables, device } from '../../../theme/variables';
+import { colorVariables } from '../../../theme/variables';
 
 export const Quantity = styled.span`
   position: absolute;
@@ -16,4 +16,7 @@ export const Quantity = styled.span`
 
 export const CartButton = styled(ButtonStyled)`
   position: relative;
+  &:hover, &:focus {
+    color: ${colorVariables.accent};
+  }
 `;

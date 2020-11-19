@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Button from '../../../components/buttons/Button';
+import Link from '../../../components/links/Link/Link';
 import { device, colorVariables, sizeVariables } from '../../../theme/variables';
 
 export const CartPreviewStyled = styled.div`
@@ -35,14 +36,14 @@ export const CartPreviewClose = styled.button`
   border: 2px solid ${colorVariables.black};
   z-index: 2222;
   font-size: 1.5rem;
-  &:hover {
+  &:hover, &:focus {
     background: ${colorVariables.black};
     color: ${colorVariables.white};
   }
 `;
 
 export const CartPreviewList = styled.ul`
-
+  margin-bottom: 20px;
 `;
 
 export const CartPreviewItemStyled = styled.li`
@@ -82,6 +83,18 @@ export const CartPreviewButton = styled(Button)`
   padding: 10px;
   color: ${colorVariables.black};
   width: 100%;
+  &:hover, &:focus {
+    border-color: ${colorVariables.accent};
+  }
+`;
+
+export const CartPreviewLink = styled(Link)`
+  display: block;
+  border: 1px solid ${colorVariables.black};
+  padding: 10px;
+  color: ${colorVariables.black};
+  width: 100%;
+  text-align: center;
   &:hover, &:focus {
     border-color: ${colorVariables.accent};
   }

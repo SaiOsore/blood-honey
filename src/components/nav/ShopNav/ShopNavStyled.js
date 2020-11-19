@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Link from '../../../components/links/Link/Link';
+import Button from '../../../components/buttons/Button';
 import { colorVariables } from '../../../theme/variables';
 
 export const ShopNavStyled = styled.div`
@@ -34,7 +35,27 @@ export const ShopNavItem = styled.li`
 
 export const ShopNavLink = styled(Link)`
   color: ${colorVariables.black};
+  background: none;
+  border: none;
   &:hover {
     color: ${colorVariables.accent};
+  }
+`;
+
+export const ShopNavBtn = styled(Button)`
+  color: ${colorVariables.black};
+  border: 2px solid ${colorVariables.black};
+  &:hover {
+    border: 2px solid ${colorVariables.accent};
+    color: ${colorVariables.accent};
+  }
+`;
+
+export const ShopNavInput = styled.input`
+  color: ${colorVariables.black};
+  border-bottom: 2px solid ${colorVariables.black};
+  padding: 5px;
+  &:hover {
+    border-bottom: 2px solid ${colorVariables.accent};
   }
 `;
