@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
-import { useRoutes } from 'hookrouter';
+import { useRoutes, usePath } from 'hookrouter';
 import Routes from './router/router';
 
 import { GlobalStyle } from './theme/global';
 import Container from './components/layouts/Container';
+import Wrapper from './components/layouts/Wrapper';
 import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
 import CartPreview from './components/cart/CartPreview/CartPreview';
 import { PathLabel } from './helpers/helpers';
 import { connect, useDispatch } from 'react-redux';
@@ -14,21 +16,27 @@ import { productsURL } from './data/API';
 const App = ({ fetchProducts }) => {
   const routeResult = useRoutes(Routes);
   const dispatch = useDispatch();
+  const path = usePath();
+  
+  let footerPath = true;
+  if(path === '/') {
+    footerPath = false;
+  }
 
   useEffect(() => {
     dispatch(fetchProducts(productsURL))
   }, [dispatch, fetchProducts]);
 
-
   return (
-    <div className="App">
+    <Wrapper className="App">
       <Header className={PathLabel('/', 'home')} />
       <Container className={PathLabel('/', 'home')} >
         <GlobalStyle />
         <CartPreview />
         {routeResult}
       </Container>
-    </div>
+      { footerPath && <Footer /> }
+    </Wrapper>
   );
 }
 

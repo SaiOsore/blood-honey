@@ -29,12 +29,21 @@ const Product = ({ match, addToCart, addedItems, fetchProducts, loading, error, 
   }
 
   if(productDetails) {
-    const { id, src, title, price } = productDetails;
+    const { 
+      id, 
+      src, 
+      title, 
+      price, 
+      material, 
+      sizeTable, 
+    } = productDetails;
     template =  <ProductDetails
                   id={id}
                   src={src}
                   title={title}
                   price={price}
+                  material={material}
+                  sizeTable={sizeTable}
                   onClick={() => {
                     handleAddToCart(id);
                   }}

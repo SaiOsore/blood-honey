@@ -27,7 +27,6 @@ export const ProductDetailsBlock = styled.div`
 export const ImgWrapper = styled.div`
   position: relative;
   max-width: 200px;
-  height: 100%;
   margin: 0 auto;
   &:before, &:after {
     content: '';
@@ -59,6 +58,15 @@ export const Title = styled.h1`
   margin-bottom: 20px;
 `;
 
+export const SubTitle = styled.h2`
+  font-size: ${sizeVariables.l2.size};
+  margin-bottom: 20px;
+`;
+
+export const MainInfo = styled.div`
+  margin-bottom: 50px;
+`;
+
 export const Details = styled.div`
   margin-bottom: 50px;
 `;
@@ -81,4 +89,10 @@ export const ProductDetailsButton = styled(Button)`
   ${device.tablet} {
     margin: 0 auto;
   };
+`;
+
+export const SizeTableImg = styled.img`
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
 `;

@@ -87,7 +87,6 @@ class Shop extends React.Component {
             }
           </ShopProductsContainer>
         </ShopStyled>
-        <Footer />
       </>
     );
   }
