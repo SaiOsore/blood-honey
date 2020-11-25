@@ -8,7 +8,7 @@ const ProductsPreview = ({products}) => {
     <ProductPreview 
       key={product.size + product.id}
       id={product.id}
-      src={product.src}
+      src={product.images[0]}
       title={product.title}
       price={product.price}
       color={product.color}

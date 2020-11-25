@@ -2,26 +2,44 @@
   "Products":[
     { 
       "id": 111,
-      "src": "/img/shop/coat.jpg",
+      "images": [
+        "/img/shop/coat/1.webp",
+        "/img/shop/coat/2.webp",
+        "/img/shop/coat/3.webp"
+      ],
+      "thumbs": [
+        "/img/shop/coat/1.webp",
+        "/img/shop/coat/2.webp",
+        "/img/shop/coat/3.webp"
+      ],
       "title": "Gray winter coat",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-      "price": 132,
+      "price": 2820,
       "category": "Coats",
       "collection": "fire",
       "stock": 4,
       "size": "S",
-      "color": "grey",
+      "color": "gray",
       "gender": "F",
       "material": "Poly 100%",
       "sizeTable": "/img/shop/sizeTable.jpg"
     },
     { 
       "id": 2242225,
-      "src": "/img/shop/coat-black.jpg",
-      "title": "Black coat",
+      "images": [
+        "/img/shop/hat/1.webp",
+        "/img/shop/hat/2.webp",
+        "/img/shop/hat/3.webp"
+      ],
+      "thumbs": [
+        "/img/shop/hat/1.webp",
+        "/img/shop/hat/2.webp",
+        "/img/shop/hat/3.webp"
+      ],
+      "title": "Black hat",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-      "price": 132,
-      "category": "Coats",
+      "price": 510,
+      "category": "Hats",
       "collection": "fire",
       "stock": 4,
       "size": "L",
@@ -31,40 +49,50 @@
       "sizeTable": "/img/shop/sizeTable.jpg"
     },
     { "id": 222,
-      "src": "/img/shop/skirt.jpg",
-      "title": "New skirt",
+      "images": [
+        "/img/shop/sweetshirt/1.webp",
+        "/img/shop/sweetshirt/2.webp",
+        "/img/shop/sweetshirt/3.webp",
+        "/img/shop/sweetshirt/4.webp",
+        "/img/shop/sweetshirt/5.webp",
+        "/img/shop/sweetshirt/6.webp"
+      ],
+      "thumbs": [
+        "/img/shop/sweetshirt/1.webp",
+        "/img/shop/sweetshirt/2.webp",
+        "/img/shop/sweetshirt/3.webp",
+        "/img/shop/sweetshirt/4.webp",
+        "/img/shop/sweetshirt/5.webp",
+        "/img/shop/sweetshirt/6.webp"
+      ],
+      "title": "Terner's sweetshirt",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-      "price": 524,
-      "category": "Skirts",
+      "price": 894,
+      "category": "Sweetshirts",
       "collection": "fire",
       "stock": 4,
-      "size": "XS",
-      "color": "black",
+      "size": "L",
+      "color": "brown",
       "gender": "F",
       "material": "Poly 100%",
       "sizeTable": "/img/shop/sizeTable.jpg"
     },
     { "id": 5125,
-      "src": "/img/shop/t-shirt.jpg",
-      "title": "Super T-shirt",
+      "images": [
+        "/img/shop/coat/1.webp",
+        "/img/shop/coat/2.webp",
+        "/img/shop/coat/3.webp"
+      ],
+      "thumbs": [
+        "/img/shop/coat/1.webp",
+        "/img/shop/coat/2.webp",
+        "/img/shop/coat/3.webp"
+      ],
+      "title": "Winter coat",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
       "price": 524,
-      "category": "T-shirts",
-      "collection": "fire",
-      "stock": 4,
-      "size": "XL",
-      "color": "red",
-      "gender": "U",
-      "material": "Poly 100%",
-      "sizeTable": "/img/shop/sizeTable.jpg"
-    },
-    { "id": 51252,
-      "src": "/img/shop/t-shirt.jpg",
-      "title": "Super T-shirt",
-      "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-      "price": 524,
-      "category": "T-shirts",
-      "collection": "fire",
+      "category": "Coats",
+      "collection": "cold",
       "stock": 4,
       "size": "XL",
       "color": "black",
@@ -72,27 +100,74 @@
       "material": "Poly 100%",
       "sizeTable": "/img/shop/sizeTable.jpg"
     },
-    { "id": 51251,
-      "src": "/img/shop/t-shirt.jpg",
-      "title": "Super T-shirt",
+    { "id": 51252,
+      "images": [
+        "/img/shop/coat/1.webp",
+        "/img/shop/coat/2.webp",
+        "/img/shop/coat/3.webp"
+      ],
+      "thumbs": [
+        "/img/shop/coat/1.webp",
+        "/img/shop/coat/2.webp",
+        "/img/shop/coat/3.webp"
+      ],
+      "title": "Super Coat",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
       "price": 524,
-      "category": "T-shirts",
-      "collection": "fire",
+      "category": "Coats",
+      "collection": "cold",
       "stock": 4,
       "size": "XL",
+      "color": "orange",
+      "gender": "U",
+      "material": "Poly 100%",
+      "sizeTable": "/img/shop/sizeTable.jpg"
+    },
+    { "id": 51251,
+      "images": [
+        "/img/shop/coat/1.webp",
+        "/img/shop/coat/2.webp",
+        "/img/shop/coat/3.webp"
+      ],
+      "thumbs": [
+        "/img/shop/coat/1.webp",
+        "/img/shop/coat/2.webp",
+        "/img/shop/coat/3.webp"
+      ],
+      "title": "New coat",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      "price": 524,
+      "category": "Coats",
+      "collection": "fire",
+      "stock": 4,
+      "size": "M",
       "color": "white",
       "gender": "U",
       "material": "Poly 100%",
       "sizeTable": "/img/shop/sizeTable.jpg"
     },
     { "id": 88883472,
-      "src": "/img/shop/coat.jpg",
-      "title": "Gray winter coat",
+      "images": [
+        "/img/shop/sweetshirt/1.webp",
+        "/img/shop/sweetshirt/2.webp",
+        "/img/shop/sweetshirt/3.webp",
+        "/img/shop/sweetshirt/4.webp",
+        "/img/shop/sweetshirt/5.webp",
+        "/img/shop/sweetshirt/6.webp"
+      ],
+      "thumbs": [
+        "/img/shop/sweetshirt/1.webp",
+        "/img/shop/sweetshirt/2.webp",
+        "/img/shop/sweetshirt/3.webp",
+        "/img/shop/sweetshirt/4.webp",
+        "/img/shop/sweetshirt/5.webp",
+        "/img/shop/sweetshirt/6.webp"
+      ],
+      "title": "Sweetshirt",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
       "price": 132,
-      "category": "Coats",
-      "collection": "fire",
+      "category": "Sweetshirts",
+      "collection": "cold",
       "stock": 4,
       "size": "S",
       "color": "grey",
@@ -101,12 +176,21 @@
       "sizeTable": "/img/shop/sizeTable.jpg"
     },
     { "id": 83727,
-      "src": "/img/shop/coat-black.jpg",
-      "title": "Black coat",
+      "images": [
+        "/img/shop/hat/1.webp",
+        "/img/shop/hat/2.webp",
+        "/img/shop/hat/3.webp"
+      ],
+      "thumbs": [
+        "/img/shop/hat/1.webp",
+        "/img/shop/hat/2.webp",
+        "/img/shop/hat/3.webp"
+      ],
+      "title": "Black hat",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
       "price": 132,
-      "category": "Coats",
-      "collection": "fire",
+      "category": "Hats",
+      "collection": "cold",
       "stock": 4,
       "size": "L",
       "color": "black",
@@ -115,11 +199,20 @@
       "sizeTable": "/img/shop/sizeTable.jpg"
     },
     { "id": 72842,
-      "src": "/img/shop/skirt.jpg",
-      "title": "New skirt",
+      "images": [
+        "/img/shop/hat/1.webp",
+        "/img/shop/hat/2.webp",
+        "/img/shop/hat/3.webp"
+      ],
+      "thumbs": [
+        "/img/shop/hat/1.webp",
+        "/img/shop/hat/2.webp",
+        "/img/shop/hat/3.webp"
+      ],
+      "title": "New hat",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
       "price": 524,
-      "category": "Skirts",
+      "category": "Hats",
       "collection": "fire",
       "stock": 4,
       "size": "XS",
@@ -129,11 +222,20 @@
       "sizeTable": "/img/shop/sizeTable.jpg"
     },
     { "id": 51252352,
-      "src": "/img/shop/t-shirt.jpg",
-      "title": "Super T-shirt",
+      "images": [
+        "/img/shop/coat/1.webp",
+        "/img/shop/coat/2.webp",
+        "/img/shop/coat/3.webp"
+      ],
+      "thumbs": [
+        "/img/shop/coat/1.webp",
+        "/img/shop/coat/2.webp",
+        "/img/shop/coat/3.webp"
+      ],
+      "title": "Super coat",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
       "price": 524,
-      "category": "T-shirts",
+      "category": "Coats",
       "collection": "fire",
       "stock": 4,
       "size": "XL",
@@ -143,12 +245,21 @@
       "sizeTable": "/img/shop/sizeTable.jpg"
     },
     { "id": 23525,
-      "src": "/img/shop/t-shirt.jpg",
-      "title": "Super T-shirt",
+      "images": [
+        "/img/shop/coat/1.webp",
+        "/img/shop/coat/2.webp",
+        "/img/shop/coat/3.webp"
+      ],
+      "thumbs": [
+        "/img/shop/coat/1.webp",
+        "/img/shop/coat/2.webp",
+        "/img/shop/coat/3.webp"
+      ],
+      "title": "Coat",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
       "price": 524,
-      "category": "T-shirts",
-      "collection": "fire",
+      "category": "Coats",
+      "collection": "cold",
       "stock": 4,
       "size": "XL",
       "color": "black",
@@ -157,15 +268,24 @@
       "sizeTable": "/img/shop/sizeTable.jpg"
     },
     { "id": 6272372,
-      "src": "/img/shop/t-shirt.jpg",
-      "title": "Super T-shirt",
+      "images": [
+        "/img/shop/coat/1.webp",
+        "/img/shop/coat/2.webp",
+        "/img/shop/coat/3.webp"
+      ],
+      "thumbs": [
+        "/img/shop/coat/1.webp",
+        "/img/shop/coat/2.webp",
+        "/img/shop/coat/3.webp"
+      ],
+      "title": "Gray winter co",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
       "price": 524,
-      "category": "T-shirts",
-      "collection": "fire",
+      "category": "Coats",
+      "collection": "cold",
       "stock": 4,
       "size": "XL",
-      "color": "white",
+      "color": "gray",
       "gender": "U",
       "material": "Poly 100%",
       "sizeTable": "/img/shop/sizeTable.jpg"

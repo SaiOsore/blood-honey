@@ -23,7 +23,7 @@ const CartPreviewItem = ({ title, id, image, quantity, removeItem, addQuantity, 
     <CartPreviewItemStyled>
       <CartPreviewItemContainer>
         <CartPreviewImgWrapper>
-          <CartPreviewImg src={image} />
+          <CartPreviewImg src={image} alt={title} />
         </CartPreviewImgWrapper>
         <CartPreviewItemContent>
           <CartPreviewTitle>{title}</CartPreviewTitle>
@@ -70,7 +70,7 @@ class CartPreview extends Component {
         addedItems.map((product) => (
           <CartPreviewItem 
             key={product.id}
-            image={product.src}
+            image={product.images[0]}
             title={product.title}
             quantity={product.quantity}
             removeItem={()=>{this.handleRemove(product.id)}}

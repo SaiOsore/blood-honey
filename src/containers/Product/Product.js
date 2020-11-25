@@ -31,7 +31,7 @@ const Product = ({ match, addToCart, addedItems, fetchProducts, loading, error, 
   if(productDetails) {
     const { 
       id, 
-      src, 
+      images, 
       title, 
       price, 
       material, 
@@ -39,7 +39,7 @@ const Product = ({ match, addToCart, addedItems, fetchProducts, loading, error, 
     } = productDetails;
     template =  <ProductDetails
                   id={id}
-                  src={src}
+                  images={images}
                   title={title}
                   price={price}
                   material={material}
