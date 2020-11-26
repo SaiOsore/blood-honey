@@ -22,6 +22,23 @@ export const ProductDetailsBlock = styled.div`
     text-align: center;
     width: 100%;
   };
+
+  & .swiper-container {
+    &:first-child {
+      width: 50%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+    width: 50%;
+  }
+  & .swiper-slide {
+    width: 100%;
+  }
+  & .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+  }
 `;
 
 export const ImgWrapper = styled.div`

@@ -46,16 +46,14 @@ const ProductDetails = (props) => {
             thumbs={{ swiper: thumbsSwiper }}
             spaceBetween={50}
             slidesPerView={1}
-            navigation
             pagination={{ clickable: true }}
-            scrollbar={{ draggable: true }}
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log('slide change')}
           >
             { imagesArr }
           </Swiper>
           <Swiper
             onSwiper={ setThumbsSwiper }
+            slidesPerView={3}
+            spaceBetween={20}
             watchSlidesVisibility
             watchSlidesProgress
           >
