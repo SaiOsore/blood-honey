@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import ShopList from '../ShopList/ShopList';
 import { 
   ShopNavStyled, 
   ShopNavBlock, 
