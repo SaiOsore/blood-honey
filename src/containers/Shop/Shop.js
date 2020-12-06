@@ -1,10 +1,37 @@
 import React from 'react';
 import ProductsPreview from '../../components/products/ProductsPreview/ProductsPreview';
-import ShopNav from '../../components/nav/ShopNav/ShopNav';
+import ShopNav from '../../components/shop/ShopNav/ShopNav';
 import Footer from '../../components/footer/Footer';
 import { sortByPrice, sortByAlphabet, filter } from '../../actions/index';
 import { connect } from 'react-redux';
 import { ShopStyled, ShopAside, ShopProductsContainer } from './ShopStyled';
+
+const arr = [
+  {
+    title: 'Categories',
+    type: 'category',
+    list: [
+      {
+        title: 'Coats',
+      },
+      {
+        title: 'Hats',
+      },
+    ],
+  },
+  {
+    title: 'Collections',
+    type: 'collection',
+    list: [
+      {
+        title: 'Fire',
+      },
+      {
+        title: 'Cold',
+      },
+    ],
+  },
+];
 
 class Shop extends React.Component {
 
@@ -17,7 +44,7 @@ class Shop extends React.Component {
   }
 
   render() {
-    const { 
+    const {
       items, 
       error, 
       loading, 
@@ -51,14 +78,13 @@ class Shop extends React.Component {
       updateDirection(direction)
     }
 
-    const filterHandler = (e) => {
-      let value = e.target.value;
+    const filterHandler = (value, type) => {
       this.setState((state) => {
         return { 
           filterValue: value
         };
       });
-      filter(value);
+      filter({value, type});
     }
 
     if(error) {
@@ -73,10 +99,17 @@ class Shop extends React.Component {
       <>
         <ShopStyled>
           <ShopAside>
-            <ShopNav 
+            <ShopNav
+              blocks={arr}
               sortByPrice={sortByPriceHandler}
               sortByAlphabet={sortByAlphabetHandler}
-              filter={filterHandler}
+              filterBy={(name, type) => {
+                filterHandler(name, type);
+              }}
+              filter={(e) => {
+                let value = e.target.value;
+                filterHandler(value, 'title || price');
+              }}
             />
           </ShopAside>
           <ShopProductsContainer>
@@ -105,7 +138,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     sortByPrice: (direction) => dispatch(sortByPrice(direction)),
     sortByAlphabet: (direction) => dispatch(sortByAlphabet(direction)),
-    filter: (value) => dispatch(filter(value)),
+    filter: (payload) => dispatch(filter(payload)),
   };
 };
 

@@ -242,15 +242,41 @@ const cartReducer = (state = initialState, action) => {
 
     case FILTER:
       let filteredItems = [...state.items];
-      filteredItems = filteredItems.filter(item => (
-        item.price >= action.payload || 
-        item.title.toLowerCase().includes(action.payload)
-      ));
 
-      return {
-        ...state,
-        filteredItems: filteredItems,
+      switch(action.payload.type) {
+        case 'title || price' :
+          filteredItems = filteredItems.filter(item => (
+            item.price >= action.payload.value || 
+            item.title.toLowerCase().includes(action.payload.value)
+          ));
+          return {
+            ...state,
+            filteredItems: filteredItems,
+          }
+        case 'category' :
+          if(action.payload.value) {
+            filteredItems = filteredItems.filter(item => (
+              item.category.toLowerCase() === action.payload.value.toLowerCase()
+            ));
+          }
+          return {
+            ...state,
+            filteredItems: filteredItems,
+          }
+        case 'collection' :
+          if(action.payload.value) {
+            filteredItems = filteredItems.filter(item => (
+              item.collection.toLowerCase() === action.payload.value.toLowerCase()
+            ));
+          }
+          return {
+            ...state,
+            filteredItems: filteredItems,
+          }
+        default :
+          return state;
       }
+
 
     case DEFAULT_STATE :
       return defaultState;
